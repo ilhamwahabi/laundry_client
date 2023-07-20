@@ -23,16 +23,16 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class Main extends StatefulWidget {
+  const Main({super.key, required this.title});
 
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<Main> createState() => _MainState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MainState extends State<Main> {
   String? selectedType;
   int selectedPage = 0;
 

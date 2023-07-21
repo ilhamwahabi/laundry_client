@@ -87,14 +87,17 @@ class _MainState extends State<Main> {
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   textStyle: const TextStyle(fontSize: 16),
-                  backgroundColor: Colors.blue,
+                  backgroundColor: Color(0xFF3282B8),
                   foregroundColor: Colors.white,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(4),
+                    borderRadius: BorderRadius.circular(5),
                   ),
                 ),
                 onPressed: () {},
-                child: const Text("Order Laundry"),
+                child: const Text(
+                  "Order Laundry",
+                  style: TextStyle(letterSpacing: 2),
+                ),
               ),
             ),
             const SizedBox(height: 30),

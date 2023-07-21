@@ -33,7 +33,7 @@ class _ComplaintPageState extends State<ComplaintPage> {
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     textStyle: const TextStyle(fontSize: 14),
-                    backgroundColor: Colors.blue,
+                    backgroundColor: Color(0xFF3282B8),
                     foregroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(4),
@@ -66,7 +66,7 @@ class _ComplaintPageState extends State<ComplaintPage> {
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     textStyle: const TextStyle(fontSize: 16),
-                    backgroundColor: Colors.blue,
+                    backgroundColor: Color(0xFF3282B8),
                     foregroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(4),

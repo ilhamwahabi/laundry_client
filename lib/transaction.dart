@@ -31,7 +31,7 @@ class _TransactionState extends State<Transaction> {
       elevation: 0,
       shape: const RoundedRectangleBorder(
         side: BorderSide(color: Colors.grey),
-        borderRadius: BorderRadius.all(Radius.circular(12)),
+        borderRadius: BorderRadius.all(Radius.circular(8)),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -66,9 +66,12 @@ class _TransactionState extends State<Transaction> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
               TextButton(
-                child: Text(widget.status == "Menunggu Dijemput"
-                    ? 'TAMBAHKAN DETAIL'
-                    : 'DETAIL'),
+                child: Text(
+                  widget.status == "Menunggu Dijemput"
+                      ? 'TAMBAHKAN DETAIL'
+                      : 'DETAIL',
+                  style: TextStyle(color: Color(0xFF3282B8)),
+                ),
                 onPressed: () {
                   Navigator.push(
                     context,

@@ -32,7 +32,7 @@ class _DetailPageState extends State<DetailPage> {
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     textStyle: const TextStyle(fontSize: 14),
-                    backgroundColor: Colors.blue,
+                    backgroundColor: Color(0xFF3282B8),
                     foregroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(4),
@@ -65,7 +65,7 @@ class _DetailPageState extends State<DetailPage> {
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     textStyle: const TextStyle(fontSize: 16),
-                    backgroundColor: Colors.blue,
+                    backgroundColor: Color(0xFF3282B8),
                     foregroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(4),

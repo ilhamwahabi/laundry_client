@@ -54,7 +54,7 @@ class _DetailPageState extends State<DetailPage> {
               const SizedBox(height: 20),
               const Text("Deskripsi Tambahan"),
               const SizedBox(height: 20),
-              TextField(
+              TextFormField(
                 controller: textarea,
                 keyboardType: TextInputType.multiline,
                 maxLines: 2,
@@ -72,7 +72,46 @@ class _DetailPageState extends State<DetailPage> {
                     ),
                   ),
                   onPressed: () {
-                    Navigator.pop(context);
+                    if (textarea.value.text == "" &&
+                        videoName == "Unggah Video") {
+                      showDialog<void>(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              title: const Text('Terjadi Kesalahan'),
+                              content: const Text(
+                                'Mohon tambahkan minimal salah satu dari rekaman atau deskripsi.',
+                              ),
+                              actions: <Widget>[
+                                TextButton(
+                                  style: TextButton.styleFrom(
+                                    textStyle:
+                                        Theme.of(context).textTheme.labelLarge,
+                                  ),
+                                  child: const Text('Mengerti'),
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                ),
+                              ],
+                            );
+                          });
+                    } else {
+                      Navigator.pop(context);
+
+                      final snackBar = SnackBar(
+                        content:
+                            const Text('Informasi cucian berhasil ditambahkan'),
+                        action: SnackBarAction(
+                          label: 'OK',
+                          onPressed: () {
+                            // Some code to undo the change.
+                          },
+                        ),
+                      );
+
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                    }
                   },
                   child: const Text("Tambahkan Informasi"),
                 ),

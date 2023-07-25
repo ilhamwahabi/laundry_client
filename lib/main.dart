@@ -36,6 +36,8 @@ class _MainState extends State<Main> {
   String? selectedType;
   int selectedPage = 0;
 
+  TextEditingController location = TextEditingController();
+
   void _onItemTapped(int index) {
     setState(() {
       selectedPage = index;
@@ -52,12 +54,13 @@ class _MainState extends State<Main> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             const SizedBox(height: 20),
-            const SizedBox(
+            SizedBox(
               height: 56.0,
-              child: TextField(
+              child: TextFormField(
                 decoration: InputDecoration(
                   labelText: 'Lokasi Penjemputan',
                 ),
+                controller: location,
               ),
             ),
             const SizedBox(height: 20),
@@ -93,7 +96,53 @@ class _MainState extends State<Main> {
                     borderRadius: BorderRadius.circular(5),
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  if (location.value.text == "" || selectedType == null) {
+                    String errorMessage = "";
+                    if (location.value.text == "" && selectedType == null) {
+                      errorMessage =
+                          "Mohon menambahkan lokasi dan memilih paket terlebih dahulu.";
+                    } else if (location.value.text == "") {
+                      errorMessage =
+                          "Mohon menambahkan lokasi terlebih dahulu.";
+                    } else if (selectedType == null) {
+                      errorMessage = "Mohon menambahkan paket terlebih dahulu.";
+                    }
+
+                    showDialog<void>(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: const Text('Terjadi Kesalahan'),
+                            content: Text(errorMessage),
+                            actions: <Widget>[
+                              TextButton(
+                                style: TextButton.styleFrom(
+                                  textStyle:
+                                      Theme.of(context).textTheme.labelLarge,
+                                ),
+                                child: const Text('Mengerti'),
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                              ),
+                            ],
+                          );
+                        });
+                  } else {
+                    final snackBar = SnackBar(
+                      content: const Text('Layanan berhasil dipesan'),
+                      action: SnackBarAction(
+                        label: 'OK',
+                        onPressed: () {
+                          // Some code to undo the change.
+                        },
+                      ),
+                    );
+
+                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                  }
+                },
                 child: const Text(
                   "Order Laundry",
                   style: TextStyle(letterSpacing: 2),

@@ -73,13 +73,50 @@ class _ComplaintPageState extends State<ComplaintPage> {
                     ),
                   ),
                   onPressed: () {
-                    // Navigator.pop(context);
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const ChatPage(),
-                      ),
-                    );
+                    if (textarea.value.text == "" &&
+                        videoName == "Unggah Video") {
+                      showDialog<void>(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              title: const Text('Terjadi Kesalahan'),
+                              content: const Text(
+                                'Mohon tambahkan minimal salah satu dari rekaman atau keterangan.',
+                              ),
+                              actions: <Widget>[
+                                TextButton(
+                                  style: TextButton.styleFrom(
+                                    textStyle:
+                                        Theme.of(context).textTheme.labelLarge,
+                                  ),
+                                  child: const Text('Mengerti'),
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                ),
+                              ],
+                            );
+                          });
+                    } else {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ChatPage(),
+                        ),
+                      );
+
+                      final snackBar = SnackBar(
+                        content: const Text('Komplain berhasil diajukan'),
+                        action: SnackBarAction(
+                          label: 'OK',
+                          onPressed: () {
+                            // Some code to undo the change.
+                          },
+                        ),
+                      );
+
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                    }
                   },
                   child: const Text("Ajukan Komplain"),
                 ),

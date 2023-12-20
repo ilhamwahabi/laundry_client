@@ -1,16 +1,12 @@
-# bersihin_app
+# laundry_client
 
-A new Flutter project.
+An app where user can order laundry.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![](ss_otp.png)
+![](ss_phone.png)
+![](ss_main.png)
+![](ss_detail.png)
+![](ss_history.png)
+![](ss_complaint.png)
+![](ss_chat.png)
+![](ss_profile.png)
